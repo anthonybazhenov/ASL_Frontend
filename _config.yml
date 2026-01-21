@@ -1,0 +1,15 @@
+title: ASL Recognition
+description: "August 2023 to June 2024"
+owner_name: The GPT Warriors
+github_username: The-GPT-Warriors
+baseurl: "/ASLFrontend"
+# Add baseurl when running local server (make)
+remote_theme: pages-themes/midnight@v0.2.0
+# remote_theme: pages-themes/dinky@v0.2.0
+# remote_theme: pages-themes/minimal@v0.2.0
+# remote_theme: pages-themes/hacker@v0.2.0
+remote_theme: pages-themes/cayman@v0.2.0
+# remote_theme: pages-themes/time-machine@v0.2.0
+plugins:
+- jekyll-remote-theme
+future: true
