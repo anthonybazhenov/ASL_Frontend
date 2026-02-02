@@ -6,76 +6,226 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #cfdbe8;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top bar - dark green */
+.top-bar {
+    background-color: #1B7A4A;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.high-contrast {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Main header - white with logo and search */
+.main-header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.city-of {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.oakland {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 0.02em;
+}
+
+.header-search-input {
+    width: 220px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.header-search-input::placeholder {
+    color: #999;
+}
+
+.header-search-input:focus {
+    outline: none;
+    border-color: #ccc;
+    background-color: #fff;
+}
+
+/* Page content - grey background, centered login */
+.page-content {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f0f0f0;
 }
 
-.login-container,
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background-color: #ebebeb;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.login-box h1 {
+    color: #000;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+.login-box input::placeholder {
+    color: #cccccc;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #1B7A4A;
+}
+
+.login-box button {
+    width: 100%;
+    background-color: #1B7A4A;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.login-box button:hover {
+    background-color: #145a32;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-footer a {
+    color: #1B7A4A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.register-box {
+    max-width: 380px;
+}
+
+/* Test page styles (unchanged structure, optional tweaks) */
 .test-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    min-height: 100vh;
 }
 
-.login-box,
 .test-box {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
     max-width: 400px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-h1 {
-    color: #3EB8F9;
+.test-box h1 {
+    color: #1B7A4A;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 32px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #96c9ff;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-input:focus {
-    outline: none;
-    border-color: #3EB8F9;
-}
-
-button {
-    width: 100%;
-    background-color: #3EB8F9;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #037dff;
+    margin-bottom: 1rem;
 }
 
 .test-box p {
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     text-align: center;
+}
+
+.test-box button {
+    width: 100%;
+    background-color: #1B7A4A;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.test-box button:hover {
+    background-color: #145a32;
 }

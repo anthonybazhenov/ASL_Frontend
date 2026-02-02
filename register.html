@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - City of Oakland</title>
+    <title>Register - City of Oakland</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,6 @@
     <header class="main-header">
         <div class="header-brand">
             <img src="assets/oakland_logo.png" alt="City of Oakland" class="header-logo">
-            </div>
         </div>
         <div class="header-search">
             <input type="text" class="header-search-input" placeholder="Search" aria-label="Search">
@@ -23,35 +22,47 @@
 
     <div class="page-content">
         <div class="login-container">
-            <div class="login-box">
-                <h1>Login</h1>
-                <form id="loginForm">
+            <div class="login-box register-box">
+                <h1>Register</h1>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="email" required>
+                    </div>
                     <div class="form-group">
                         <input type="text" id="username" placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <input type="password" id="password" placeholder="password" required>
                     </div>
-                    <button type="submit">Login</button>
+                    <div class="form-group">
+                        <input type="password" id="confirmPassword" placeholder="confirm password" required>
+                    </div>
+                    <button type="submit">Create account</button>
                 </form>
                 <p class="form-footer">
-                    Don't have an account? <a href="register.html">Register</a>
+                    Already have an account? <a href="index.html">Log in</a>
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
 
-            if (username && password) {
-                window.location.href = 'test.html';
-            } else {
-                alert('Please enter both username and password');
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
             }
+
+            // For now, redirect to login after "register"
+            alert('Account created. You can now log in.');
+            window.location.href = 'index.html';
         });
     </script>
 </body>
