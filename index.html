@@ -8,13 +8,12 @@
 </head>
 <body>
     <header class="top-bar">
-        <span class="high-contrast">High Contrast</span>
+        <button type="button" class="high-contrast-toggle" id="highContrastToggle" aria-pressed="false">High Contrast</button>
     </header>
 
     <header class="main-header">
         <div class="header-brand">
             <img src="assets/oakland_logo.png" alt="City of Oakland" class="header-logo">
-            </div>
         </div>
         <div class="header-search">
             <input type="text" class="header-search-input" placeholder="Search" aria-label="Search">
@@ -34,6 +33,9 @@
                     </div>
                     <button type="submit">Login</button>
                 </form>
+                <p class="form-footer form-hint">
+                    Test login: <strong>test</strong> / <strong>test</strong>
+                </p>
                 <p class="form-footer">
                     Don't have an account? <a href="register.html">Register</a>
                 </p>
@@ -42,17 +44,45 @@
     </div>
 
     <script>
+        // Temporary test login (remove when real auth is added)
+        const TEST_USERNAME = 'test';
+        const TEST_PASSWORD = 'test';
+
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
+            const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
 
-            if (username && password) {
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+
+            if (username === TEST_USERNAME && password === TEST_PASSWORD) {
                 window.location.href = 'test.html';
             } else {
-                alert('Please enter both username and password');
+                alert('Invalid username or password');
             }
         });
+    </script>
+    <script>
+        (function () {
+            var toggle = document.getElementById('highContrastToggle');
+            var key = 'highContrast';
+            function apply() {
+                var on = localStorage.getItem(key) === 'true';
+                document.body.classList.toggle('high-contrast-mode', on);
+                if (toggle) toggle.setAttribute('aria-pressed', on);
+            }
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    var on = localStorage.getItem(key) !== 'true';
+                    localStorage.setItem(key, on ? 'true' : 'false');
+                    apply();
+                });
+            }
+            apply();
+        })();
     </script>
 </body>
 </html>
